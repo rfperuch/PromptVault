@@ -60,7 +60,7 @@
       "dist-electron/**/*",
       "dist/**/*",
       "icon.ico",
-      "icon.png",
+      "icon.icns",
       "!node_modules/**/*"
     ],
     "asar": true,
@@ -94,7 +94,7 @@
           ]
         }
       ],
-      "icon": "icon.png",
+      "icon": "icon.icns",
       "category": "public.app-category.productivity",
       "hardenedRuntime": true,
       "gatekeeperAssess": false,
