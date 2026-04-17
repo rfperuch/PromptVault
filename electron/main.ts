@@ -33,23 +33,28 @@ function getFolderFilePath(folderId: string) {
 }
 
 function readStore() {
+  const defaultData = {
+    folders: [],
+    prompts: [],
+    categories: [
+      { id: 'cat-1', name: 'Código', color: '#3b82f6', createdAt: new Date().toISOString() },
+      { id: 'cat-2', name: 'Escrita', color: '#22c55e', createdAt: new Date().toISOString() },
+      { id: 'cat-3', name: 'Imagem', color: '#a855f7', createdAt: new Date().toISOString() },
+      { id: 'cat-4', name: 'Análise', color: '#f97316', createdAt: new Date().toISOString() },
+    ],
+    settings: { theme: 'dark', viewMode: 'grid' },
+  };
+
   const storePath = getStorePath();
   if (!existsSync(storePath)) {
-    const defaultData = {
-      folders: [],
-      prompts: [],
-      categories: [
-        { id: 'cat-1', name: 'Código', color: '#3b82f6', createdAt: new Date().toISOString() },
-        { id: 'cat-2', name: 'Escrita', color: '#22c55e', createdAt: new Date().toISOString() },
-        { id: 'cat-3', name: 'Imagem', color: '#a855f7', createdAt: new Date().toISOString() },
-        { id: 'cat-4', name: 'Análise', color: '#f97316', createdAt: new Date().toISOString() },
-      ],
-      settings: { theme: 'dark', viewMode: 'grid' },
-    };
     writeFileSync(storePath, JSON.stringify(defaultData, null, 2));
     return defaultData;
   }
-  return JSON.parse(readFileSync(storePath, 'utf-8'));
+  try {
+    return JSON.parse(readFileSync(storePath, 'utf-8'));
+  } catch {
+    return defaultData;
+  }
 }
 
 function writeStore(data: unknown) {
@@ -72,11 +77,20 @@ function deleteFolderFile(folderId: string) {
 }
 
 function getIconPath() {
-  const ext = process.platform === 'win32' ? 'ico' : 'png';
-  if (isDev) {
-    return join(__dirname, '..', `icon.${ext}`);
+  if (process.platform === 'win32') {
+    return isDev
+      ? join(__dirname, '..', 'icon.ico')
+      : join(process.resourcesPath, 'icon.ico');
   }
-  return join(process.resourcesPath, `icon.${ext}`);
+  if (process.platform === 'darwin') {
+    return isDev
+      ? join(__dirname, '..', 'icon.icns')
+      : join(process.resourcesPath, 'icon.icns');
+  }
+  // Linux
+  return isDev
+    ? join(__dirname, '..', 'public', 'icon.png')
+    : join(process.resourcesPath, 'icon.png');
 }
 
 function createWindow() {

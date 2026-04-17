@@ -21,10 +21,9 @@ export function CategoryBadge({ name, color }: { name: string; color: string }) 
       style={{
         backgroundColor: `${color}15`,
         color: color,
-        ringColor: `${color}30`,
         borderColor: `${color}30`,
       }}
-      className="border"
+      className="border ring-0"
     >
       {name}
     </Badge>
