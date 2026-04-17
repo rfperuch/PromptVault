@@ -34,3 +34,6 @@ build/icon.png
 build/icon_512.png
 build/icon_1024.png
 .icon-ico
+
+# Claude Code
+.claude/

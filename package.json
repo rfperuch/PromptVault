@@ -2,6 +2,7 @@
   "name": "promptvault",
   "version": "1.0.0",
   "description": "Gerenciador de prompts de IA",
+  "author": "Rodrigo Peruch",
   "main": "dist-electron/main.js",
   "private": true,
   "type": "module",
@@ -10,14 +11,12 @@
     "build": "vite build",
     "build:electron": "tsc -p tsconfig.electron.json",
     "build:all": "npm run build:electron && npm run build",
-    "dist": "npm run build:all && electron-builder --win --mac",
     "dist:win": "npm run build:all && electron-builder --win",
     "dist:mac": "npm run build:all && electron-builder --mac",
     "dist:dir": "npm run build:all && electron-builder --dir"
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "fuse.js": "^7.3.0",
     "i18next": "^26.0.5",
     "i18next-browser-languagedetector": "^8.2.1",
     "lucide-react": "^1.8.0",
@@ -120,7 +119,7 @@
         "AppImage",
         "deb"
       ],
-      "icon": "icon.png",
+      "icon": "public/icon.png",
       "category": "Utility"
     }
   }
