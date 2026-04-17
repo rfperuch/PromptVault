@@ -1,0 +1,84 @@
+{
+  "app": {
+    "name": "PromptVault",
+    "loading": "Loading..."
+  },
+  "nav": {
+    "allPrompts": "All Prompts",
+    "favorites": "Favorites"
+  },
+  "sidebar": {
+    "folders": "Folders",
+    "categories": "Categories",
+    "noFoldersYet": "No folders yet",
+    "manageFolders": "Manage folders",
+    "noFolder": "No folder"
+  },
+  "search": {
+    "placeholder": "Search prompts..."
+  },
+  "prompts": {
+    "newPrompt": "New Prompt",
+    "editPrompt": "Edit Prompt",
+    "noResults": "No results found",
+    "noResultsHint": "Try different terms",
+    "noPromptsYet": "No prompts yet",
+    "noPromptsHint": "Click \"New Prompt\" to create your first prompt",
+    "resultsFor": "Results for \"{{query}}\"",
+    "promptCount": "{{count}} prompt",
+    "promptCount_plural": "{{count}} prompts",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleteConfirm": "Delete this prompt?"
+  },
+  "editor": {
+    "title": "Title",
+    "titlePlaceholder": "e.g. Python Code Generator",
+    "description": "Description (optional)",
+    "descriptionPlaceholder": "Briefly describe what this prompt does...",
+    "folder": "Folder",
+    "categories": "Categories",
+    "newCategory": "New",
+    "categoryName": "Category name",
+    "add": "Add",
+    "content": "Prompt Content",
+    "variablesHint": "Use {{variable}} to create variables",
+    "variablesDetected": "Variables detected",
+    "contentPlaceholder": "You are an expert in {{area}}. Create a {{type}} about {{topic}}...",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "detail": {
+    "updatedAt": "Updated on {{date}}",
+    "noFolder": "No folder",
+    "fillVariables": "Fill Variables",
+    "valueFor": "Value for {{name}}...",
+    "copyPrompt": "Copy Prompt"
+  },
+  "folders": {
+    "manage": "Manage",
+    "manageFolders": "Manage Folders",
+    "noFoldersCreated": "No folders created",
+    "newFolder": "New folder...",
+    "create": "Create",
+    "deleteConfirm": "Delete folder \"{{name}}\"? Prompts will be moved to \"No folder\".",
+    "close": "Close"
+  },
+  "categories": {
+    "manageCategories": "Manage Categories",
+    "noCategories": "No categories created",
+    "newCategory": "New category...",
+    "create": "Create",
+    "deleteConfirm": "Delete category \"{{name}}\"?"
+  },
+  "header": {
+    "export": "Export",
+    "import": "Import"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "app": {
+    "name": "PromptVault",
+    "loading": "Cargando..."
+  },
+  "nav": {
+    "allPrompts": "Todos los Prompts",
+    "favorites": "Favoritos"
+  },
+  "sidebar": {
+    "folders": "Carpetes",
+    "categories": "Categorías",
+    "noFoldersYet": "Ninguna carpeta aún",
+    "manageFolders": "Gestionar carpetes",
+    "noFolder": "Sin carpeta"
+  },
+  "search": {
+    "placeholder": "Buscar prompts..."
+  },
+  "prompts": {
+    "newPrompt": "Nuevo Prompt",
+    "editPrompt": "Editar Prompt",
+    "noResults": "No se encontraron resultados",
+    "noResultsHint": "Prueba con otros términos",
+    "noPromptsYet": "Ningún prompt aún",
+    "noPromptsHint": "Haz clic en \"Nuevo Prompt\" para crear tu primer prompt",
+    "resultsFor": "Resultados para \"{{query}}\"",
+    "promptCount": "{{count}} prompt",
+    "promptCount_plural": "{{count}} prompts",
+    "copy": "Copiar",
+    "copied": "¡Copiado!",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "deleteConfirm": "¿Eliminar este prompt?"
+  },
+  "editor": {
+    "title": "Título",
+    "titlePlaceholder": "ej: Generador de código Python",
+    "description": "Descripción (opcional)",
+    "descriptionPlaceholder": "Describe brevemente lo que hace este prompt...",
+    "folder": "Carpeta",
+    "categories": "Categorías",
+    "newCategory": "Nueva",
+    "categoryName": "Nombre de la categoría",
+    "add": "Añadir",
+    "content": "Contenido del Prompt",
+    "variablesHint": "Usa {{variable}} para crear variables",
+    "variablesDetected": "Variables detectadas",
+    "contentPlaceholder": "Eres un experto en {{area}}. Crea un {{tipo}} sobre {{topico}}...",
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "detail": {
+    "updatedAt": "Actualizado el {{date}}",
+    "noFolder": "Sin carpeta",
+    "fillVariables": "Rellenar Variables",
+    "valueFor": "Valor para {{name}}...",
+    "copyPrompt": "Copiar Prompt"
+  },
+  "folders": {
+    "manage": "Gestionar",
+    "manageFolders": "Gestionar Carpetas",
+    "noFoldersCreated": "Ninguna carpeta creada",
+    "newFolder": "Nueva carpeta...",
+    "create": "Crear",
+    "deleteConfirm": "¿Eliminar carpeta \"{{name}}\"? Los prompts se moverán a \"Sin carpeta\".",
+    "close": "Cerrar"
+  },
+  "categories": {
+    "manageCategories": "Gestionar Categorías",
+    "noCategories": "Ninguna categoría creada",
+    "newCategory": "Nueva categoría...",
+    "create": "Crear",
+    "deleteConfirm": "¿Eliminar categoría \"{{name}}\"?"
+  },
+  "header": {
+    "export": "Exportar",
+    "import": "Importar"
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Oscuro"
+  }
+}

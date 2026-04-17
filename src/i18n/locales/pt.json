@@ -1,0 +1,84 @@
+{
+  "app": {
+    "name": "PromptVault",
+    "loading": "Carregando..."
+  },
+  "nav": {
+    "allPrompts": "Todos os Prompts",
+    "favorites": "Favoritos"
+  },
+  "sidebar": {
+    "folders": "Pastas",
+    "categories": "Categorias",
+    "noFoldersYet": "Nenhuma pasta ainda",
+    "manageFolders": "Gerenciar pastas",
+    "noFolder": "Sem pasta"
+  },
+  "search": {
+    "placeholder": "Buscar prompts..."
+  },
+  "prompts": {
+    "newPrompt": "Novo Prompt",
+    "editPrompt": "Editar Prompt",
+    "noResults": "Nenhum resultado encontrado",
+    "noResultsHint": "Tente termos diferentes",
+    "noPromptsYet": "Nenhum prompt ainda",
+    "noPromptsHint": "Clique em \"Novo Prompt\" para criar seu primeiro prompt",
+    "resultsFor": "Resultados para \"{{query}}\"",
+    "promptCount": "{{count}} prompt",
+    "promptCount_plural": "{{count}} prompts",
+    "copy": "Copiar",
+    "copied": "Copiado!",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "deleteConfirm": "Excluir este prompt?"
+  },
+  "editor": {
+    "title": "Título",
+    "titlePlaceholder": "Ex: Gerador de código Python",
+    "description": "Descrição (opcional)",
+    "descriptionPlaceholder": "Descreva brevemente o que este prompt faz...",
+    "folder": "Pasta",
+    "categories": "Categorias",
+    "newCategory": "Nova",
+    "categoryName": "Nome da categoria",
+    "add": "Adicionar",
+    "content": "Conteúdo do Prompt",
+    "variablesHint": "Use {{variavel}} para criar variáveis",
+    "variablesDetected": "Variáveis detectadas",
+    "contentPlaceholder": "Você é um especialista em {{area}}. Crie um {{tipo}} sobre {{topico}}...",
+    "save": "Salvar",
+    "cancel": "Cancelar"
+  },
+  "detail": {
+    "updatedAt": "Atualizado em {{date}}",
+    "noFolder": "Sem pasta",
+    "fillVariables": "Preencher Variáveis",
+    "valueFor": "Valor para {{name}}...",
+    "copyPrompt": "Copiar Prompt"
+  },
+  "folders": {
+    "manage": "Gerenciar",
+    "manageFolders": "Gerenciar Pastas",
+    "noFoldersCreated": "Nenhuma pasta criada",
+    "newFolder": "Nova pasta...",
+    "create": "Criar",
+    "deleteConfirm": "Excluir pasta \"{{name}}\"? Os prompts serão movidos para \"Sem pasta\".",
+    "close": "Fechar"
+  },
+  "categories": {
+    "manageCategories": "Gerenciar Categorias",
+    "noCategories": "Nenhuma categoria criada",
+    "newCategory": "Nova categoria...",
+    "create": "Criar",
+    "deleteConfirm": "Excluir categoria \"{{name}}\"?"
+  },
+  "header": {
+    "export": "Exportar",
+    "import": "Importar"
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Escuro"
+  }
+}
