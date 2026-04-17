@@ -37,3 +37,6 @@ build/icon_1024.png
 
 # Claude Code
 .claude/
+
+# Lock file — each platform regenerates its own (cross-platform native bindings)
+package-lock.json
