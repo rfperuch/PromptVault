@@ -50,7 +50,7 @@ promptvault/
 │       ├── search/          # SearchBar
 │       └── ui/              # Button, Input, Textarea, Badge
 ├── icon.ico                 # App icon (Windows)
-├── icon.png                 # App icon (macOS/Linux)
+├── icon.icns                # App icon (macOS)
 └── package.json
 ```
 
@@ -77,7 +77,7 @@ Data is stored in the Electron `userData` directory:
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) v20 or later
+- [Node.js](https://nodejs.org/) v22 or later
 - npm (comes with Node.js)
 
 ### Install dependencies
@@ -124,13 +124,7 @@ npm run dist:win
 npm run dist:mac
 ```
 
-**Both platforms:**
-
-```bash
-npm run dist
-```
-
-> **Note:** macOS builds require a macOS machine. Windows builds require a Windows machine. Cross-compilation is not supported by electron-builder.
+> **Note:** macOS builds require a macOS machine. Windows builds require a Windows machine. Cross-compilation is not supported by electron-builder. Use the GitHub Actions workflow to build both platforms in CI.
 
 ### Output
 
@@ -139,11 +133,14 @@ Installers are generated in the `release/` directory:
 | Platform | File |
 |---|---|
 | Windows | `PromptVault Setup 1.0.0.exe` |
-| macOS | `PromptVault-1.0.0.dmg` |
+| macOS (Apple Silicon) | `PromptVault-1.0.0-arm64.dmg` |
+| macOS (Intel) | `PromptVault-1.0.0.dmg` |
 
 ## Releases
 
 Download the latest installer from the [GitHub Releases](https://github.com/your-username/promptvault/releases) page.
+
+> **macOS — first launch:** The app is not notarized. On the first run, macOS will block it with a security warning. To open it: **right-click the app → Open**.
 
 For automated cross-platform builds, the repository includes a GitHub Actions workflow (`.github/workflows/build.yml`) that:
 - Builds on Windows (`.exe`) and macOS (`.dmg`) in parallel
