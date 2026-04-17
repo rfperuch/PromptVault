@@ -138,7 +138,7 @@ Installers are generated in the `release/` directory:
 
 ## Releases
 
-Download the latest installer from the [GitHub Releases](https://github.com/your-username/promptvault/releases) page.
+Download the latest installer from the [GitHub Releases](https://github.com/rfperuch/PromptVault/releases) page.
 
 > **macOS — first launch:** The app is not notarized. On the first run, macOS will block it with a security warning. To open it: **right-click the app → Open**.
 
