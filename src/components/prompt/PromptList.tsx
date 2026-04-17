@@ -77,7 +77,7 @@ export function PromptList() {
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold">{title}</h2>
         <span className="text-sm text-muted-foreground">
-          {filteredPrompts.length} {filteredPrompts.length === 1 ? t('prompts.promptCount', { count: 1 }).replace('1 ', '') : t('prompts.promptCount_plural', { count: filteredPrompts.length }).replace(/\d+ /, '')}
+          {t('prompts.promptCount', { count: filteredPrompts.length })}
         </span>
       </div>
 

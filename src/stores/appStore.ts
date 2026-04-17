@@ -39,6 +39,8 @@ interface Store {
 
   addCategory: (name: string, color: string) => Category;
   deleteCategory: (id: string) => void;
+  renameCategory: (id: string, name: string) => void;
+  updateCategoryColor: (id: string, color: string) => void;
 
   toggleTheme: () => void;
   setViewMode: (mode: 'grid' | 'list') => void;
@@ -116,22 +118,32 @@ export const useStore = create<Store>((set, get) => ({
       updatedAt: new Date().toISOString(),
     };
 
+    const folderChanged = updates.folderId !== undefined && oldPrompt.folderId !== updates.folderId;
+
     // Update index
     set((s) => ({
       prompts: s.prompts.map((p) => (p.id === id ? updatedPrompt : p)),
     }));
     await get().persist();
 
-    // Update in old folder file
-    if (oldPrompt.folderId) {
+    if (folderChanged) {
+      // Remove from old folder file
+      if (oldPrompt.folderId) {
+        const oldData = await loadFolder(oldPrompt.folderId);
+        oldData.prompts = oldData.prompts.filter((p) => p.id !== id);
+        await saveFolder(oldPrompt.folderId, oldData);
+      }
+      // Add to new folder file
+      if (updatedPrompt.folderId) {
+        const newData = await loadFolder(updatedPrompt.folderId);
+        newData.prompts.push(updatedPrompt);
+        await saveFolder(updatedPrompt.folderId, newData);
+      }
+    } else if (oldPrompt.folderId) {
+      // Same folder — update the prompt in place
       const folderData = await loadFolder(oldPrompt.folderId);
       folderData.prompts = folderData.prompts.map((p) => (p.id === id ? updatedPrompt : p));
       await saveFolder(oldPrompt.folderId, folderData);
-    }
-
-    // If folder changed and old folder was set
-    if (updates.folderId !== undefined && oldPrompt.folderId !== updates.folderId) {
-      await get().movePromptToFolder(id, updates.folderId);
     }
   },
 
@@ -205,11 +217,11 @@ export const useStore = create<Store>((set, get) => ({
 
   // ─── Folders ───
 
-  addFolder: async (name) => {
+  addFolder: async (name, color) => {
     const folder: Folder = {
       id: uuid(),
       name,
-      color: '#6366f1',
+      color,
       createdAt: new Date().toISOString(),
     };
 
@@ -222,7 +234,6 @@ export const useStore = create<Store>((set, get) => ({
 
   deleteFolder: async (id) => {
     // Move all prompts in this folder to "no folder"
-    const promptsInFolder = get().prompts.filter((p) => p.folderId === id);
     set((s) => ({
       prompts: s.prompts.map((p) =>
         p.folderId === id ? { ...p, folderId: null } : p

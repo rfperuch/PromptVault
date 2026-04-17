@@ -153,7 +153,11 @@ app.whenReady().then(() => {
       properties: ['openFile'],
     });
     if (!result.canceled && result.filePaths[0]) {
-      return JSON.parse(readFileSync(result.filePaths[0], 'utf-8'));
+      try {
+        return JSON.parse(readFileSync(result.filePaths[0], 'utf-8'));
+      } catch {
+        return null;
+      }
     }
     return null;
   });

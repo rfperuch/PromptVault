@@ -3,7 +3,7 @@ import { useStore } from '@/stores/appStore';
 import { SearchBar } from '@/components/search/SearchBar';
 import { Button } from '@/components/ui/Button';
 import { Plus, Download, Upload } from 'lucide-react';
-import { exportData, importData } from '@/lib/api';
+import { exportData, importData, saveData } from '@/lib/api';
 
 export function Header() {
   const { t } = useTranslation();
@@ -16,6 +16,7 @@ export function Header() {
   const handleImport = async () => {
     const data = await importData();
     if (data) {
+      await saveData(data);
       await init();
     }
   };

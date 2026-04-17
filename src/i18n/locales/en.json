@@ -31,7 +31,9 @@
     "copied": "Copied!",
     "edit": "Edit",
     "delete": "Delete",
-    "deleteConfirm": "Delete this prompt?"
+    "deleteConfirm": "Delete this prompt?",
+    "addToFavorites": "Add to favorites",
+    "removeFromFavorites": "Remove from favorites"
   },
   "editor": {
     "title": "Title",

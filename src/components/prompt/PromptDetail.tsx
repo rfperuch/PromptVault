@@ -7,7 +7,7 @@ import { CategoryBadge } from '@/components/ui/Badge';
 import {
   ArrowLeft, Copy, Pencil, Trash2, Star, Check, Variable, FolderOpen,
 } from 'lucide-react';
-import { extractVariables, fillVariables, formatDate } from '@/lib/utils';
+import { extractVariables, fillVariables, formatDate, escapeHtml } from '@/lib/utils';
 
 export function PromptDetail() {
   const { t } = useTranslation();
@@ -74,7 +74,7 @@ export function PromptDetail() {
             variant="ghost"
             size="icon"
             onClick={() => toggleFavorite(prompt.id)}
-            title={prompt.isFavorite ? t('prompts.delete') : t('nav.favorites')}
+            title={prompt.isFavorite ? t('prompts.removeFromFavorites') : t('prompts.addToFavorites')}
           >
             <Star className={`w-4 h-4 ${prompt.isFavorite ? 'fill-yellow-400 text-yellow-400' : ''}`} />
           </Button>
@@ -140,11 +140,11 @@ export function PromptDetail() {
           {variables.length > 0 ? (
             <span
               dangerouslySetInnerHTML={{
-                __html: prompt.content.replace(
+                __html: escapeHtml(prompt.content).replace(
                   /\{\{(\w+)\}\}/g,
                   (_, v) =>
                     variableValues[v]
-                      ? `<span class="text-green-500 font-semibold">${variableValues[v]}</span>`
+                      ? `<span class="text-green-500 font-semibold">${escapeHtml(variableValues[v])}</span>`
                       : `<span class="variable-highlight">{{${v}}}</span>`
                 ),
               }}
