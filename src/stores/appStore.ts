@@ -217,7 +217,7 @@ export const useStore = create<Store>((set, get) => ({
 
   // ─── Folders ───
 
-  addFolder: async (name, color) => {
+  addFolder: async (name, color = '#6366f1') => {
     const folder: Folder = {
       id: uuid(),
       name,

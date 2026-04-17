@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Gerenciador de prompts de IA",
   "author": "Rodrigo Peruch",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rfperuch/PromptVault.git"
+  },
   "main": "dist-electron/main.js",
   "private": true,
   "type": "module",
