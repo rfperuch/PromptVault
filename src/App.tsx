@@ -16,9 +16,11 @@ export default function App() {
     return (
       <div className="flex items-center justify-center h-screen bg-background">
         <div className="flex flex-col items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center animate-pulse">
-            <span className="text-white font-bold">PV</span>
-          </div>
+          <img
+            src="./icon.png"
+            alt="PromptVault"
+            className="w-12 h-12 rounded-xl object-contain animate-pulse"
+          />
           <p className="text-sm text-muted-foreground">Carregando...</p>
         </div>
       </div>
