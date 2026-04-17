@@ -94,9 +94,8 @@ function createWindow() {
       contextIsolation: true,
       nodeIntegration: false,
     },
-    titleBarStyle: isMac ? 'hiddenInset' : 'default',
+    titleBarStyle: 'default',
     backgroundColor: '#09090b',
-    trafficLightPosition: { x: 15, y: 15 },
   });
 
   win.removeMenu();
