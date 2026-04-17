@@ -22,11 +22,11 @@ export function Header() {
   };
 
   return (
-    <header className="h-14 border-b border-border flex items-center gap-4 px-6 app-drag">
-      <div className="flex-1 app-no-drag">
+    <header className="h-14 border-b border-border flex items-center gap-4 px-6">
+      <div className="flex-1">
         <SearchBar />
       </div>
-      <div className="flex items-center gap-2 app-no-drag">
+      <div className="flex items-center gap-2">
         <Button variant="ghost" size="sm" onClick={handleExport} title={t('header.export')}>
           <Download className="w-4 h-4 mr-1" />
           {t('header.export')}

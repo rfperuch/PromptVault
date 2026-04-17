@@ -10,7 +10,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const isDev = !app.isPackaged;
-const isMac = process.platform === 'darwin';
 
 function getUserDataPath() {
   const p = app.getPath('userData');
