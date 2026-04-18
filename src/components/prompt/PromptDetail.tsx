@@ -2,7 +2,6 @@ import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '@/stores/appStore';
 import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
 import { CategoryBadge } from '@/components/ui/Badge';
 import {
   ArrowLeft, Copy, Pencil, Trash2, Star, Check, Variable, FolderOpen,
@@ -78,6 +77,19 @@ export function PromptDetail() {
           >
             <Star className={`w-4 h-4 ${prompt.isFavorite ? 'fill-yellow-400 text-yellow-400' : ''}`} />
           </Button>
+          <Button variant="outline" size="sm" onClick={handleCopy}>
+            {copied ? (
+              <>
+                <Check className="w-3.5 h-3.5 mr-1 text-green-400" />
+                {t('prompts.copied')}
+              </>
+            ) : (
+              <>
+                <Copy className="w-3.5 h-3.5 mr-1" />
+                {t('detail.copyPrompt')}
+              </>
+            )}
+          </Button>
           <Button variant="outline" size="sm" onClick={handleEdit}>
             <Pencil className="w-3.5 h-3.5 mr-1" />
             {t('prompts.edit')}
@@ -119,15 +131,21 @@ export function PromptDetail() {
           </div>
           <div className="grid gap-3">
             {variables.map((v) => (
-              <div key={v} className="flex items-center gap-3">
-                <label className="text-xs font-mono text-muted-foreground w-24 shrink-0">
+              <div key={v} className="flex items-start gap-3">
+                <label className="text-xs font-mono text-muted-foreground w-24 shrink-0 pt-1.5">
                   {`{{${v}}}`}
                 </label>
-                <Input
+                <textarea
+                  rows={1}
                   placeholder={t('detail.valueFor', { name: v })}
                   value={variableValues[v] || ''}
                   onChange={(e) => setVariableValues((prev) => ({ ...prev, [v]: e.target.value }))}
-                  className="h-8 text-sm"
+                  onInput={(e) => {
+                    const el = e.currentTarget;
+                    el.style.height = 'auto';
+                    el.style.height = `${el.scrollHeight}px`;
+                  }}
+                  className="flex w-full rounded-md border border-input bg-transparent px-3 py-1.5 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring resize-none overflow-hidden leading-5"
                 />
               </div>
             ))}
@@ -136,7 +154,7 @@ export function PromptDetail() {
       )}
 
       <div className="relative bg-card border border-border rounded-lg p-4">
-        <div className="prompt-content max-h-[50vh] overflow-auto scrollbar-thin pr-2">
+        <div className="prompt-content">
           {variables.length > 0 ? (
             <span
               dangerouslySetInnerHTML={{
@@ -152,21 +170,6 @@ export function PromptDetail() {
           ) : (
             prompt.content
           )}
-        </div>
-        <div className="flex items-center gap-2 mt-4 pt-3 border-t border-border">
-          <Button onClick={handleCopy} className="flex-1">
-            {copied ? (
-              <>
-                <Check className="w-4 h-4 mr-1 text-green-400" />
-                {t('prompts.copied')}
-              </>
-            ) : (
-              <>
-                <Copy className="w-4 h-4 mr-1" />
-                {t('detail.copyPrompt')}
-              </>
-            )}
-          </Button>
         </div>
       </div>
     </div>
